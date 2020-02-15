@@ -15,37 +15,37 @@ function Elli:new(text)
         if text then
             self:setText(text)
         else
-            self:setText([["Hello, [username]," said the old lady. "Thanks again for helping me move."]])
+            self:setText([["Привет, [username]," сказала старушка. "Еще раз спасибо, что помогли мне переехать."]])
             self:setOptions({
                 {
-                    text = [["Do you have another key?"]],
+                    text = [["У тебя есть еще один ключ?"]],
                     condition = function () return Events.sawSecondGate end,
-                    response = [["Another key? I'm afraid not. But I bet that with some imagination a single key is all you need."]],
+                    response = [[Еще один ключ? Боюсь, что нет. Но я уверена, что при некотором воображении один ключ-это все, что вам нужно."]],
                     remove = true
                 }
             })
         end
     else
         if Events.postLament then
-            self:setText([[[username] entered the house. It was empty.]])
+            self:setText([[[username] вошла в дом. Он пуст.]])
             self:setOptions({
                 {
-                    text = [["Anyone home?"]],
+                    text = [["Кто-нибудь дома?"]],
                     default = true,
                     func = F(self, "checkRoom")
                 }
             })
         elseif Events.bellRang then
-            self:setText([[As [username] entered the house Elli was visibly panicking. "What are you doing?! Run! Run as fast as you can."]])
+            self:setText([[Когда [username] вошла в дом Элли явно запаниковала. "Что ты делаешь?! Беги! Беги так быстро, как только можешь."]])
             self:setOptions({
                 {
-                    text = [["Why?"]],
-                    response = [["Why?! The dragon of course! It's gonna kill us all!"]],
+                    text = [["Почему?"]],
+                    response = [["Почему?! Потому что дракон! Он убьет нас всех!"]],
                     remove = true
                 },
                 {
-                    text = [["What about you?"]],
-                    response = [["I'm leaving as soon as I have packed everything. Now go!"]],
+                    text = [["А ты?"]],
+                    response = [["Я уеду, как только соберу вещи. А теперь иди!"]],
                     remove = true
                 }
             })
@@ -53,18 +53,18 @@ function Elli:new(text)
             if text then
                 self:setText(text)
             else
-                self:setText([["Oh, hello [username]. What can I do for you?", asked Elli. She was good friends with [username]'s mother.]])
+                self:setText([["О, привет [username]. Чем могу служить?", спросила Элли. Она была хорошей подругой с матерью [username].]])
             end
 
             self:setOptions({
                 {
-                    text = [["Can I help you with something?"]],
+                    text = [["Могу я вам чем-нибудь помочь?"]],
                     func = F(self, "asking"),
                     condition = function () return not Events.cleanedWindow end
                 },
                 {
-                    text = [["Do you need any new clothes?"]],
-                    response = [["No thank you, dear. My clothes are fine."]],
+                    text = [["Вам нужна новая одежда?"]],
+                    response = [["Нет, спасибо, дорогая. Моя одежда в порядке."]],
                     remove = true
                 }
             })
@@ -72,7 +72,7 @@ function Elli:new(text)
             self:setOnItems({
             {
                 request = "pantsEdbur",
-                response = [["I'm sorry dear but I think you're confusing me for someone else. These are certainly not my pants."]]
+                response = [["Прости, дорогая, но мне кажется, ты путаешь меня с кем-то другим. Это уж точно не мои штаны."]]
             }})
         end
     end
@@ -81,15 +81,15 @@ end
 
 function Elli:asking()
     Art.new(self, "elli")
-    self:setText([["Well I'm glad you asked! You see, I was cleaning the house, but I'm too tired to clean this last window. Could you do it for me?"]])
+    self:setText([["Ну что ж, я рада, что вы спросили! Видите ли, я убиралась в доме, но слишком устала, чтобы мыть это последнее окно. Не могли бы вы сделать это за меня?"]])
     self:setOptions(
     {
         {
-            text = [["Sure."]],
+            text = [["Конечно."]],
             func = F(self, "window")
         },
         {
-            text = [["Sorry, not now."]],
+            text = [["Простите, но не сейчас."]],
             func = F(self, "new")
         }
     })
@@ -98,16 +98,16 @@ end
 
 function Elli:window()
     Art.new(self, "windows")
-    self:setText([["Wonderful! Okay it's very simple. All you have to do is remove some dirt. Make sure the window on the left looks the same as the window on the right. And if you make a big mistake you can always go back with Ctrl + Z."]])
+    self:setText([["Замечательно! Ладно, это очень просто. Все, что вам нужно сделать, это удалить немного грязи. Убедитесь, что окно слева выглядит так же, как и окно справа. И если вы сделаете большую ошибку, вы всегда можете отменить через Ctrl + Z."]])
     self:setOptions({
         {
-            text = [["Done!"]],
+            text = [["Готово!"]],
             default = true,
             func = F(self, "checkWindows")
         },
         {
-            text = [["I changed my mind."]],
-            func = F(self, "new", "Oh, okay. Thanks anyway.")
+            text = [["Я передумала."]],
+            func = F(self, "new", "Ну ладно. В любом случае спасибо.")
         }
     })
 end
@@ -135,29 +135,29 @@ function Elli:checkWindows()
     end
 
     if failed then
-        self:setText([["Oh, well, no I think you missed a spot. Try again."]])
+        self:setText([["О, ну, нет, я думаю, ты пропустила одно место. Попробуй снова."]])
     else
         Events.cleanedWindow = true
-        self:setText([["Ah, thank you so much! Here, I'll give you 10 gold."]])
+        self:setText([["Ах, большое вам спасибо! Вот, я дам тебе 10 золотых."]])
         self.player.gold = self.player.gold + 10
         Art.new(self, "elli")
         self:setOptions({
             {
-                text = [["You're welcome."]],
-                func =  F(self, "new", [["You're welcome," said [username].]])
+                text = [["Пожалуйста."]],
+                func =  F(self, "new", [["Пожалуйста," сказала [username].]])
             }
         })
         self:setOptions({
             {
-                text = [["No problem."]],
-                func =  F(self, "new", [["No problem," said [username].]])
+                text = [["Без проблем."]],
+                func =  F(self, "new", [["Без проблем," сказала [username].]])
             }
         })
     end
 end
 
 function Elli:checkRoom()
-    self:setText([["Anyone home?" shouted [username]. From the lack of response [he] got [his] answer.]])
+    self:setText([["Есть кто дома?" крикнула [username]. From the lack of response [he] got [his] answer.]])
     print(Events.postLament, Events.metAnn, Events.movedAnn)
     if Events.postLament and Events.metAnn and not Events.movedAnn then
         self.rContent = love.filesystem.read(self.file)
@@ -165,7 +165,7 @@ function Elli:checkRoom()
         if self.rContent:find("|_____|||_.` `*                       `. |||", 1, true) then
             print("?????")
             Art.new(self, "room3")
-            self:setText([[The old lady looked outside and saw she was in Eastown. "Wonderful! Thank you dear." She grabbed the key from her closet, and handed it to [username], along with 20 gold. "Good luck defeating my grandfather", she said with a smile.]])
+            self:setText([[Старуха выглянула наружу и увидела, что она в Восточном Городе. "Замечательно! Спасибо, дорогая." Она выхватила ключ из шкафа и передала его [username], вместе с двадцатью золотыми. "Удачи в победе над моим дедушкой", - сказала она с улыбкой.]])
             self.player.gold = self.player.gold + 20
             Events.movedAnn = true
             local t = lume.clone(Items["castleGateKey"])
@@ -174,8 +174,8 @@ function Elli:checkRoom()
 
             self:setOptions({
                 {
-                    text = [["Thanks."]],
-                    func = F(self, "new", [["Thanks." said [username], feeling a bit uncomfortable.]]),
+                    text = [["Спасибо."]],
+                    func = F(self, "new", [["Спасибо." сказала [username], чувствуя себя неуютно.]]),
                     remove = true
                 }
             })
