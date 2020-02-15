@@ -91,7 +91,7 @@ function ReadMe:setName(pick)
     print(pick)
     local name
     if pick then
-        local names = {"Арахна", "Лилия", "Бэтти", "Орфей", "Миднайт", "Анубис"}
+        local names = {"Кроу", "Мунлайт", "Бэтти", "Лилит", "Миднайт", "Эвелин"}
         name = lume.randomchoice(names)
         self:setText("Ладно, тогда я сам выберу... " .. name .. "! Теперь, как мы должны говорить об этом персонаже?")
     else
