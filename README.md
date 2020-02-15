@@ -1,4 +1,4 @@
-# And yet it hurt
+# И все же было больно.
 Исходный код игры для блокнота
 
 * [Играть в игру на английском языке](https://sheepolution.itch.io/and-yet-it-hurt)
