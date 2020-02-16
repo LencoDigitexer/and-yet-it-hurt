@@ -9,11 +9,11 @@ function Edbur:new()
 	self.anim:add("idle", 1)
 
 	if Events.gavePantsToEdbur then
-		self:setText([["Where did you go?" said Edbur. "I told you to wait here."]])
+		self:setText([["Куда же вы пошли?" сказал Эдбур. "Я же сказал тебе ждать здесь."]])
 		self:setOptions({
 				{
-					text = [["Sorry."]],
-					response = [[Edbur gave [username] a dagger. "Here you go, your very own weapon."]],
+					text = [["Простите."]],
+					response = [[Эдбур дал [username] кинжал. "Держи, твоё оружие."]],
 					item = "dagger",
 					func = function ()
 						Game:removeFile("home")
@@ -22,12 +22,12 @@ function Edbur:new()
 					end,
 					options = {
 						{
-							text = [["Thanks!"]],
+							text = [["Спасибо!"]],
 							anim = "laughing",
-							response = [[Holding the dagger brought a bright smile on [username]'s face. It made [him] feel strong, like [he] could take on the world. "Thank you so much Edbur!" said [username]. "Rgharharharha", laughed Edbur. "No problem kiddo, but be careful not to-"]],
+							response = [[Блеск кинжала в руке [username] вызвал улыбку у неё на лице. Это заставляло её чувствовать себя сильной, как будто она могла завладеть всем миром. "Большое спасибо, Эдбур!" сказала [username]. "Ргархархарха", засмеялся Эдубр. "Нет проблем, малыш, но будь осторожен"]],
 							options = {
 								{
-									text = "Continue.",
+									text = "Продолжить.",
 									func = F(self, "event", 1)
 								}
 							}
@@ -39,20 +39,20 @@ function Edbur:new()
 		return
 	end
 
-	self:setText([["Well hello there, [username]," said Edbur, a large and old man who despite his age was still one of the strongest in town. Edbur was good friends with [username]'s father. "What can I do for you?"]])
+	self:setText([["Ну здравствуй, [username]," сказал Эдбур, здоровый старик, который, несмотря на свой возраст, всё ещё был одним из самых сильных в городе. Эдбур был хорошим другом отца [username] "Что я могу для вас сделать?"]])
 
 	self:setOnItems({
 	{
 		request = "pantsEdbur",
-		response = [[[username] handed Edbur his pants. "Very good, here is 30 gold. And you know what? I'll give you something extra! Wait here."]],
+		response = [[[username] передала Эдбуру его штаны. "Очень хорошо, вот 30 золотых. И знаешь что? Я дам тебе кое-что еще! Подожди здесь."]],
 		gold = 30,
 		remove = true,
 		anim = "idle",
 		event = "gavePantsToEdbur",
 		options = {
 			{
-				text = "Wait.",
-				response = [[Edbur goes to the back of his shop and comes back with a dagger. "Here you go, your very own weapon."]],
+				text = "Ждать.",
+				response = [[Эдбур уходит в кладовку магазина и возвращается с кинжалом. "Держи, это твоё личное оружие."]],
 				item = "dagger",
 				func = function ()
 					Game:removeFile("home")
@@ -61,12 +61,12 @@ function Edbur:new()
 				end,
 				options = {
 					{
-						text = [["Thanks!"]],
+						text = [["Спасибо!"]],
 						anim = "laughing",
-						response = [[Holding the dagger brought a bright smile on [username]'s face. It made [him] feel strong, like [he] could take on the world. "Thank you so much Edbur!" "Rgharharharha", laughed Edbur. "No problem kiddo, but be careful not to-"]],
+						response = [[Блеск кинжала в руке [username] вызвал улыбку у неё на лице. Это заставляло её чувствовать себя сильной, как будто она могла завладеть всем миром. "Большое спасибо, Эдбур!" сказала [username]. "Ргархархарха", засмеялся Эдубр. "Нет проблем, малыш, но будь осторожен"]],
 						options = {
 							{
-								text = "Continue.",
+								text = "Продолжить.",
 								func = F(self, "event", 1)
 							}
 						}
@@ -78,15 +78,15 @@ function Edbur:new()
 
 	self:setOptions({
 		{
-			text = [["I want to buy a weapon"]],
-			response = [["Rgharharharha", laughed Edbur. "What does a kid like you need a weapon for? You don't have enough gold anyway."]],
+			text = [["Я хочу купить оружие."]],
+			response = [["Ргархархарха", засмеялся Эдбур. "Зачем такому ребенку, как ты, оружие? У тебя всё равно не хватит золота."]],
 			anim = "laughing",
 			remove = true
 		},
 		{
 			condition = F(self, "hasItem", "pantsEdbur"),
-			text = [["I brought your pants"]],
-			response = [["Ah great, hand them over"]],
+			text = [["Я принесла ваши штаны."]],
+			response = [["Круто, давай их сюда"]],
 			anim = "hand",
 			options = {},
 		}
@@ -110,7 +110,7 @@ function Edbur:event(i)
 	Events.bellRang = true
 	self:setOptions({
 		{
-			text = "Continue.",
+			text = "Продолжить.",
 			default = true,
 			func = F(self, "event", i + 1)
 		}
@@ -119,16 +119,16 @@ function Edbur:event(i)
 	if i == 1 then
 		self:loadArt("weapon_shop")
 		self.anim:add("idle", 1)
-		self:setText([[Edbur was suddenly interrupted by the tower bell. He looked frightened, something that [username] had never seen before from the strong and brave Edbur. "30 years...," said Edbur, staring into the distance.]])
+		self:setText([[Внезапно, Эдбур был прерван колокольным звоном на башне. Эдбур был испуганным, чего [username] никогда раньше не видела от сильного и храброго Эдбура. "30 лет...," сказал Эдбур, глядя в даль.]])
 	elseif i == 2 then
-		self:setText([["What's going on?", asked [username]. Edbur grabbed [username] by the shoulders. "That bell means that a dragon is heading our way."]])
+		self:setText([["Что происходит?", спросила [username]. Эдбур схватил [username] за плечи. "Этот колокол означает, что дракон направляется в нашу сторону."]])
 	elseif i == 3 then
-		self:setText([[Never before had [username] seen a dragon. But from the tales [he] heard about the creatures, and from Edbur's reaction, [he] knew that the town and everyone's live was in danger.]])
+		self:setText([[[username] никогда раньше не видела дракона. Но по рассказам она слышала об этих существах и по реакции Эдбура, она понимала, что город и жизнь каждого в опасности.]])
 	elseif i == 4 then
 		Game:addFile(require "dragon_burning_home")
 		Game:addFile(require("elli")())
 		self.deleteOnClose = true
-		self:setText([["Listen carefully [username], I need you to be brave and make sure your parents are safe, their sheep might lure the dragon towards them. After I put on my pants I will head in the same direction."]])
+		self:setText([["Слушай внимательно, [username], мне нужно, чтобы ты не боялась и убедилась в том, что твои родители в безопасности - их овци могут приманить дракона к ним. Я сейчас одену штаны и тоже пойду к ним."]])
 		self:setOptions({})
 	end
 
