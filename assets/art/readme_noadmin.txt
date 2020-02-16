@@ -1,4 +1,4 @@
-          -- Please drag the file onto the Notepad that the game opened for you --
+          -- Пожалуйста, перетащите файл в блокнот, который игра открыла для вас--
 
-The game uses some magic, which requires you to use the Notepad that comes with the game.
-If you run the game as administrator at least once you might be able to simply double click the files.
+Игра использует некоторую магию, которая требует, чтобы вы использовали блокнот, который поставляется с игрой.
+Если вы запустите игру от имени администратора хотя бы один раз, вы можете просто дважды щелкнуть файлы.
