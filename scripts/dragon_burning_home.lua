@@ -13,28 +13,28 @@ local scene = {
 	scenes = {
 		{
 			anim = "dragon_burning",
-			text = "With the town in turmoil [username] rushed towards [his] home. Upon arrival [his] biggest fear became reality. The dragon, more terrifying than [username] had imagined, spew its blazing flames straight onto [his] home.",
+			text = "В суматохе города, [username] бежит к своему дому. По прибытию, её страх стал реальностью. Дракон, страшнее, чем [username] могла себе представить, извергал свое пылающее пламя прямо на её дом.",
 			func = function () Game:removeFile("house") end
 		},
 		{
 			anim = "eye",
-			text = "[username] watched as the flames destroyed everything [he] owned, everything [he] loved. [He] could hear the screams of [his] parents pierce through the burning walls.",
+			text = "[username] наблюдала, как пламя уничтожало всё, чем она владела, всё, что она любила. Она слышала, как крики её родителей проникают сквозь горящие стены.",
 		},
 		{
 			anim = "charge",
-			text = "[username] looked at [his] dagger in [his] hand. Rushed with emotions [his] mind had no room for any rational thought. [He] held up the dagger and rushed towards the dragon.",
+			text = "[username] посмотрела на свой кинжал в руке. [username] не могла мыслить разумно, потому что её переполняли эмоции. Она сжала кинжал покрепче и бросилась на дракона.",
 		},
 		{
 			anim = "stopped",
-			text = "But before [he] could get even close to the dragon [he] was grabbed by the arm.",
+			text = "Но прежде чем она смогла приблизиться к дракону, её схватили за руку.",
 		},
 		{
 			anim = "Edbur",
-			text = [[It was Edbur. "What do you think you're doing?! Do you want to die?!", he yelled at [username].]],
+			text = [[Это был Эдбур. "Что ты делаешь?! Ты хочешь умереть?!", он закричал на [username].]],
 		},
 		{
 			anim = "dragon",
-			text = [[[username] took a second to collect [his] thoughts, all [his] mixed emotions suddenly turned into grief as [he] hugged Edbur. "Come," said Edbur as the dragon made its leave, "you can rest at my place."]],
+			text = [[[username] потребовалась секунда, чтобы собраться с мыслями. Все смешаные эмоции превратились в горе, когда она обняла Эдубра. "Пошли," сказал Эдбур, когда дракон улетел, "ты можешь отдохнуть у меня дома."]],
 			func = function ()
 				Game:addFile(require("scenes.players_lament"))
 			end
