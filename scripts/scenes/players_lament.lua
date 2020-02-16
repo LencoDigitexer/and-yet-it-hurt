@@ -21,45 +21,45 @@ local scene = {
 	scenes = {
 		{
 			anim = "door",
-			text = [[Edbur slowly opened the door. "[username], are you awake?". As usual, [username] didn't respond.]]
+			text = [[Эдбур медленно закрыл дверь. "[username], ты спишь?". Как обычно, [username] не ответила.]]
 		},
 		{
 			anim = "bed",
-			text = [["It's been 3 days. I know this must be hard on you, but you can't just lay in bed all day." Still no response.]],
+			text = [["Прошло 3 дня. Я знаю, что это должно быть тяжело для тебя, но ты не можешь просто лежать в постели весь день." Ответа по-прежнему не было.]],
 		},
 		{
 			anim = "food",
-			text = [["At least eat. I know I'm not the best cook, but it's made with love. And isn't that what's most important? Rhahaha.. ha..," Edbur laughed awkwardly. [username] remained silent.]],
+			text = [["Хотя бы поешь. Я знаю, что я не лучший повар, но делаю это с любовью. Разве это не самое главное? Рхахаха.. ха..," Эдбур неловко засмеялся. [username] промолчала.]],
 		},
 		{
 			anim = "edbur_sad",
-			text = [["Alright, well, I'll leave the plate next to your bed as usual." He put down the plate and picked up another plate filled with food gone cold.]],
+			text = [["Хорошо, я оставлю тарелку рядом с твоей кроватью, как обычно." Он поставил тарелку и взял другую, с уже остывшей едой.]],
 		},
 		{
 			anim = "door",
-			text = [[I wish I was good at this kind of stuff, he thought to himself as he closed the door.]]
+			text = [["Хотел бы я быть хорошим специалистом в таких делах", - подумал он, закрывая за собой дверь.]]
 		},
 		{
 			anim = "sun",
-			text = [[2 more days passed when [username] finally decided to leave the bed.]]
+			text = [[Прошло еще 2 дня, когда [username], наконец, решила покинуть кровать.]]
 		},
 		{
 			anim = "edbur_smiling",
-			text = [["[username]! Are.. are you alright?" Edbur asked carefully.]],
-			option = [["I want to kill the dragon"]]
+			text = [["[username]! Э.. Ты в порядке?" Осторожно спросил Эдбур]],
+			option = [["Я хочу убить дракона."]]
 		},
 		{
 			anim = "edbur_angry",
-			text = [["I want to kill the dragon," said [username]. It took Edbur a second to realize what words came out of [username]'s mouth. "Have you gone mad? Didn't you see.."]],
-			option = "Continue."
+			text = [["Я хочу убить дракона," сказала [username]. Эдбуру нужен был момент, чтобы понять, какие слова слетели с губ [username]. "Ты что, с ума сошла? Разве ты не видела?"]],
+			option = "Продолжить."
 		},
 		{
 			anim = "eye",
-			text = [[Edbur held his breath as he looked straight into [username]'s eyes. They were filled with pure hatred. Edbur realized that there was nothing he could say to change [username]'s mind.]]
+			text = [[Эдбур затих, глядя прямо в глаза [username]. Они были полны чистой ненависти. Эдбуру нечего было возразить мнению [username]. ]]
 		},
 		{
 			anim = "edbur_neutral",
-			text = [[Edbur sighed. "Very well. Follow me. I will teach you how to fight."]]
+			text = [[Эдбур вздохнул. "Ладно. Следуй за мной. Я научу тебя сражаться."]]
 		},
 		{
 			func = function () Game:replaceFile("weapon shop", require("edbur_fighting")()) end
