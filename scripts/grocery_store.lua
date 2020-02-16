@@ -10,27 +10,27 @@ function GroceryStore:new()
 		Events.sawStore = true
 	end
 
-    self:setText([[[username] stood in front of the door of the grocery store. The sign said CLOSED.]])
+    self:setText([[[username] стояла перед дверью продуктового магазина. Табличка говорила, что она закрыт.]])
 
 	self:setOptions({
 		{
-			text = [[Knock.]],
+			text = [[Постучать.]],
 			default = true,
 			func = F(self, "checkOpen")
 		},
 		{
-            text = [[Shout "Is anyone there?"]],
-            response = [["Is anyone there?" shouted [username]. No response.]]
+            text = [[Крикнуть "Тут кто-нибудь есть?"]],
+            response = [["Тут кто-нибудь есть?" прокричала [username]. Ответа на крик не последовало.]]
 		}
 	})
 end
 
 
 function GroceryStore:checkOpen()
-	self:setText([[[username] knocked on the door. No response.]])
+	self:setText([[[username] постучалась в дверь. Ответа не было.]])
 	if self.rContent:find("OPEN") then
 		self.anim:set("open")
-		self:setText("Suddenly, the sign said OPEN. But still, the door was closed.")
+		self:setText("Внезапно, на табличке стало написано 'ОТКРЫТО'. Но дверь все еще закрыта")
 	end
 end
 
