@@ -9,47 +9,47 @@ function Ann:new(text)
     print(Events.sawCastleGate, Events.gaveNoteToFerdan)
 
     if Events.metAnn then
-        self:setText([[Please let me know when you're done with moving."]])
+        self:setText([[Пожалуйста, дайте мне знать, когда закончите с переездом."]])
         self:setOptions({
             {
-                    text = [["Okay."]]
+                    text = [["Хорошо."]]
             },
             {
-                text = [["I'm not sure how to do this."]],
-                response = [["How hard could it be? Surely there is an empty house in Eastown after the dragon attacked. Just move me and all my stuff over there."]]
+                text = [["Я не знаю, как это сделать."]],
+                response = [["Неужели это так трудно? Наверняка в Восточном Городе есть пустой дом после нападения дракона. Просто перенеси меня и все мои вещи туда."]]
             }
         })
     else
-        self:setText([[[username] saw an old woman sittng at a table. "Why hello there. What can I do for you?"]])
+        self:setText([[[username] увидела старуху, сидящую за столом. "Почему бы и нет. Что я могу для вас сделать?"]])
         self:setOptions({
             {
-                text = [["Do you have the key for the gate to the castle?"]],
-                response = [[The old woman smiled. "Why yes, I do. Do you want me to give it to you? Well maybe you can help me with something first."]],
+                text = [["У тебя есть ключ от ворот замка?"]],
+                response = [[Старуха улыбнулась. "Почему бы и нет. Ты хочешь, чтобы я отдала его тебе? Ты хочешь, чтобы я отдала его тебе? Ну, может быть, ты сначала поможешь мне кое с чем."]],
                 condition = function () return Events.gaveNoteToFerdan and Events.sawCastleGate end,
                 anim = "face",
                 options = {
                     {
-                        text = [["What do you mean?"]],
-                        response = [["I've always wanted to live in Eastown, but at my old age it's hard to move. Especially since I want to bring all my belongings. Will you help me?"]],
+                        text = [["С чем?"]],
+                        response = [["Я всегда хотела жить в Востоном городе, но в моем преклонном возрасте трудно переехать. Тем более что я хочу взять с собой все свои вещи. Вы мне поможете?"]],
                         event = "metAnn",
                         options = {
                             {
-                                text = [["I'm on it."]],
-                                response = [["Please let me know when you're done with moving."]],
+                                text = [["Хорошо, я займусь этим."]],
+                                response = [["Пожалуйста, дайте мне знать, когда закончите с переездом."]],
                                 anim = "room",
                                 options = {
                                     {
-                                        text = [["Okay."]]
+                                        text = [["Хорошо."]]
                                     },
                                     {
-                                        text = [["I'm not sure how to do this."]],
-                                        response = [["How hard could it be? Surely there is an empty house in Eastown after the dragon attacked. Just move me and all my stuff over there."]]
+                                        text = [["Я не знаю, как это сделать."]],
+                                        response = [["Неужели это так трудно? Наверняка в Истауне есть пустой дом после нападения дракона. Просто перенеси меня и все мои вещи туда."]]
                                     }
                                 },
                             },
                             {
-                                text = [["Aren't you afraid of the dragon?"]],
-                                response = [["Silly kid. Do you really think I fear death at my age?"]],
+                                text = [["Разве ты не боишься дракона?"]],
+                                response = [["Глупый ребенок. Неужели ты думаешь, что я боюсь смерти в моем возрасте?"]],
                                 remove = true
                             }
                         }
@@ -57,8 +57,8 @@ function Ann:new(text)
                 }
             },
             {
-                text = [["Who are you?"]],
-                response = [["Shouldn't I be the one asking that since you're entering my house?" The old woman smiled. "My name is Ann. Just a regular old lady living the last of her days."]],
+                text = [["А вы кто?"]],
+                response = [["Разве не я должна спрашивать об этом, раз уж ты входишь в мой дом? Старуха улыбнулась. -Меня зовут Анна. Обычная старая леди, доживающая свои последние дни."]],
                 anim = "face",
                 remove = true
             }
