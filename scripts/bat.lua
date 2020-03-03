@@ -19,9 +19,9 @@ function Bat:new(...)
 
 	self.strength = 5
 
-	self.description = "Suddenly, [username] encountered a bat. A small but foul creature."
-	self.attackDescription = "The bat started biting [username]"
-	self.prepareAttackDescription = "Then the bat was preparing for an attack!"
+	self.description = "Внезапно, [username] столкнулась с летучей мышью. Маленькое, но мерзкое существо."
+	self.attackDescription = "Летучая мышь начала кусать [username]"
+	self.prepareAttackDescription = "Значит, летучая мышь готовилась к нападению!"
 end
 
 
