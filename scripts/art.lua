@@ -107,7 +107,7 @@ function Art:format()
 	end)
 
 	if text ~= "" then
-		warning("Didn't finish the text! Left with: " .. text)
+		warning("Вы не закончили тест! Начните с: " .. text)
 	end
 
 	self:setDimensions()
