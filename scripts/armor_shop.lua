@@ -14,23 +14,23 @@ function ArmorShop:new(text)
     }
 
     if not Events.hasBeenInArmorShopBefore then
-        self:setText([[[username] entered the armory shop and saw a kid about [his] age standing behind the counter. "Oh, hello," said the kid. "Welcome in our armor shop. We sell armor, I guess. Can I help you with anything, like, buying something, maybe?"]])
+        self:setText([[[username] вошла в оружейный магазин и увидела парня примерно её возраста, стоящего за прилавком. - "О, привет", - сказал парень.  "Добро пожаловать в нашу оружейную лавку. Мы продаем доспехи, я полагаю. Могу я вам чем-нибудь помочь, например, купить что-нибудь?"]])
     else
-        self:setText([["Oh, hello," said the kid. "Welcome in our shop. We sell armor, I guess. Do you want to buy something?"]])
+        self:setText([["О, привет", - сказал парень. "Добро пожаловать в наш магазин. Мы продаем доспехи, я полагаю. Хочешь что- нибудь купить?"]])
     end
     
     if text then
-        self:setText([["Oh. Okay, well, you see, if you don't have enough gold you can't buy it. That's like, how this works. So, yeah, sorry."]])
+        self:setText([["Ох. Ну, видите ли, если у вас недостаточно золота, вы не можете его купить. Вот как это работает, я полагаю. Так что, извини."]])
     end
 
     self:setOptions({
         {
-            text = [["I would like to buy something."]],
-            response = [["Right, okay, well, just mark the item that you want to buy. But, like, one at a time, please."]]
+            text = [["Я бы хотела кое-что купить."]],
+            response = [["Хорошо, хорошо, просто отметьте товар, который вы хотите купить. Но, пожалуйста, по очереди."]]
         },
         {
-            text = [["Where are your parents?"]],
-            response = [["Well my mom ran away ages ago, but my dad is upstairs. Had a bit too much of his 'special potion' as he calls it."]],
+            text = [["Где твои родители?"]],
+            response = [["Ну, моя мама сбежала давным-давно, а мой папа на небесах. Немного перебрал со своим "особым зельем", как он его называл."]],
         }
     })
 
@@ -50,32 +50,32 @@ function ArmorShop:onEdit()
         if self.rContent:lower():find(str .. v) then
             if Events[v .. "Bought"] then
                 if v == "gauntlets" then
-                    self:setText([["Gauntlets, right. The thing is, you already have gauntlets. So, like, there isn't really a point to buying another pair of gauntlets. I think."]])
+                    self:setText([["Перчатки, верно. Дело в том, что у тебя уже есть перчатки. Так что , на самом деле , нет смысла покупать еще одну пару перчаток, я полагаю."]])
                 else
-                    self:setText([["A ]] .. v .. [[, right. The thing is, you already have a ]] .. v .. [[. So, like, there isn't really a point to buying another ]] ..v .. [[. I think."]])
+                    self:setText([["Это ]] .. v .. [[, верно. Дело в том, что у тебя уже есть ]] .. v .. [[. Так что , на самом деле , нет смысла покупать еще ]] ..v .. [[, я полагаю."]])
                 end
             else
-                self:setText([["The ]] .. v.. [[, right. That costs ]] .. self.costs[v] .. [[ gold. So, yeah, please give me ]] .. self.costs[v] ..  [[ gold, I suppose.]])
+                self:setText([["Это ]] .. v.. [[, верно. Стоимость:  ]] .. self.costs[v] .. [[ золотых. Так что, да, пожалуйста, дай мне ]] .. self.costs[v] ..  [[золотых, я полагаю.]])
                 if self.player.gold < self.costs[v] then
                     self:setOptions({
                         {
-                            text = [["I don't have enough gold."]],
-                            func = F(self, "new", [["Oh. Okay, well, you see, if you don't have enough gold you can't buy it. That's like, how this works. So, yeah, sorry."]])
+                            text = [["Мне не хватает золота."]],
+                            func = F(self, "new", [["Ох. Ну, видите ли, если у вас недостаточно золота, вы не можете его купить. Вот как это работает, я полагаю. Так что, извини."]])
                         }
                     })
                 else
                     self:setOptions({
                         {
-                            text = [[Give ]] .. self.costs[v] .. [[ gold.]] ,
-                            response = [["Thanks. Here you have the ]] .. v .. [[. Have fun, I guess."]],
+                            text = [[Дать ]] .. self.costs[v] .. [[ золотых.]] ,
+                            response = [["Спасибо. Вы приобрели ]] .. v .. [[. Веселитесь, я полагаю."]],
                             item = v,
                             gold = -self.costs[v],
                             event = v .. "Bought",
-                            func = F(self, "new", [["Thanks. Here you have the ]] .. v .. [[. Have fun, I guess."]])
+                            func = F(self, "new", [["Спасибо. Вы приобрели ]] .. v .. [[. Веселитесь, я полагаю."]])
                         },
                         {
-                            text = [["I changed my mind."]],
-                            func = F(self, "new", [["Oh. Well, that's okay."]])
+                            text = [["Я передумала."]],
+                            func = F(self, "new", [["А. Ну, это нормально."]])
                         }
                     })
                 end
