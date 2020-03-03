@@ -19,9 +19,9 @@ function Boar:new(...)
 
 	self.strength = 25
 
-	self.description = "Suddenly, [username] encountered a boar. They take a while to prepare their attack, but once they're ready it's over before you know it."
-	self.attackDescription = "The boar rushed at [username]"
-	self.prepareAttackDescription = "Then the boar was preparing for an attack!"
+	self.description = "Внезапно, [username] столкнулась с кабаном. Им требуется время для подготовке к аттаке, но как только они будут готовы, все закончится прежде, чем вы это заметите."
+	self.attackDescription = "Кабан бросился на [username]"
+	self.prepareAttackDescription = "Значит, кабан готовится к нападению!"
 end
 
 
