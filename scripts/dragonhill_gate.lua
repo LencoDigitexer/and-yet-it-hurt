@@ -7,64 +7,64 @@ function DragonhillGate:new(text)
 	self.anim:add("guard", 1)
 
 	if not text then
-		self:setText([[A knight was guarding the gate. "Greetings," said the knight. "No one is allowed to enter. Uphill is where the dragon lives."]])
+		self:setText([[Ворота охранял рыцарь. - "Приветствую вас", - сказал рыцарь. - "Никому не позволено входить. Там, наверху, живет дракон."]])
 	elseif type(text) == "string" then
 		self:setText(text)
 	end
 
 	self:setOptions({
 		{
-			text = [["Let me in."]],
+			text = [["Впустите меня."]],
 			condition = function () return not Events.skeletonKingDefeated end,
-			response = [["What are you planning, kid? It's impossible to kill the dragon. I mean not unless... but that's just a legend. Now go away."]],
+			response = [["Что ты задумал, малыш? Невозможно убить дракона. Я имею в виду, если только... но это всего лишь легенда. А теперь уходи."]],
 			options = {
 				{
-					text = [["Unless what?"]],
-					response = [["Nothing! Ignore what I said!"]],
+					text = [["Если только что?"]],
+					response = [["Ничего! Не обращай внимания на то, что я сказал!"]],
 					remove = true
 				},
 				{
-					text = [["If you say so..."]],
-					func = F(self, "new", [["If you say so...," said [username].]])
+					text = [["Как скажете..."]],
+					func = F(self, "new", [["Как скажете...," сказала [username].]])
 				}
 			}
 		},
 		{
-			text = [["Let me in."]],
+			text = [["Впустите меня."]],
 			condition = function () return Events.skeletonKingDefeated end,
-			response = [["What are you planning, kid? It's impossible to kill the dragon. I mean not unless..." The knight stopped as he looked at the sword in [username]'s hand. "Is that, it can't be, the legendary sword Nightblood?"]],
+			response = [["Что ты задумал, малыш? Невозможно убить дракона. Я имею в виду, если только..." Рыцарь остановился, глядя на меч в руке [username]. "Неужели это легендарный Кровавый Меч?"]],
 			options = {
 				{
-					text = [["It is."]],
+					text = [["Да, это так"]],
 					func = F(self, "enter"),
-					response = [["I can't believe it. Very well then, you may enter. Good luck out there, kid."]],
+					response = [["Я не могу в это поверить. Очень хорошо. Тогда вы можете войти. Удачи тебе."]],
 				},
 				{
-					text = [["That's correct."]],
+					text = [["Это верно."]],
 					func = F(self, "enter"),
 				}
 			}
 		},
 		{
-			text = [["Who are you?"]],
-			response = [["The name is Nord. I am one of the three Serpent Knight Brothers."]]
+			text = [["А ты кто?"]],
+			response = [["Меня зовут Норд. Я один из трех братьев рыцаря дракона."]]
 		},
 		{
-			text = [["What's up?"]],
+			text = [["-Что случилось?"]],
 			anim = "leaves",
 			condition = function () return not Events.foundGuardsRing end,
-			response = [["Well I'm glad you asked. You see, I lost my ring in this mountain of leaves. It looks like a '9'. Can you find it for me?
-When you find it, replace it with a '0'."]],
+			response = [["Я рад, что вы спросили. Видите ли, я потерял свое кольцо в этой горе листьев. Оно выглядит как '9'. Вы можете найти его для меня?
+Когда вы найдете его, замените на '0'."]],
 			options = {
 				{
-					text = [["I found it!"]],
+					text = [["Я найду его!"]],
 					default = true,
 					func = F(self, "findRing")
 				},
 				{
-					text = [["Not now."]],
+					text = [["Не сейчас."]],
 					anim = "guard",
-					func = F(self, "new", [["Not now."]])
+					func = F(self, "new", [["Не сейчас."]])
 				}
 			}
 		}
@@ -80,24 +80,24 @@ function DragonhillGate:findRing()
 		Events.foundGuardsRing = true
 		self.player.gold = self.player.gold + 25
 		self.anim:set("guard")
-		self:setText([["You really did find it! Thanks a lot!" The knight handed [username] 25 gold.]])
+		self:setText([["Вы действительно нашли его! Большое спасибо!" Рыцарь вручил [username] 25 золотых.]])
 		self:setOptions({
 			{
-				text = [["You're welcome."]],
-				func = F(self, "new", [["You're welcome," said [username].]])
+				text = [["Пожалуйста."]],
+				func = F(self, "new", [["Пожалуйста," сказала [username].]])
 			},
 			{
-				text = [["No problem."]],
-				func = F(self, "new", [["No problem," said [username].]])
+				text = [["Без проблем."]],
+				func = F(self, "new", [["Без проблем," сказала [username].]])
 			}
 		})
 	else
-		self:setText([["Well, no, not really. Are you sure you found my ring that looks like a '9' and replaced it with a '0'?"]])
+		self:setText([["Ну, не совсем так. Вы уверены, что нашли моё кольцо, которое выглядит как "9" и заменили его на "0"?"]])
 	end
 end
 
 function DragonhillGate:enter()
-	self:setText([["I can't believe it. Very well then, you may enter. Good luck out there, kid."]])
+	self:setText([["Я не могу в это поверить. Очень хорошо, тогда вы можете войти. Удачи тебе."]])
 	self:setOptions({})
 	self.deleteOnClose = true
 	Game:removeFile("weapon shop")
