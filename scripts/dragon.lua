@@ -19,9 +19,9 @@ function Dragon:new(...)
 
 	self.strength = 20
 
-	self.description = "[username] approached the dragon, who took note of [username]'s presence and started to roar. The battle was on."
-	self.attackDescription = "The dragon spew its flames at [username]"
-	self.prepareAttackDescription = "Then the dragon opened its mouth."
+	self.description = "[username] подошла к дракону, который заметил её присутствие и зарычал. Битва продолжалась."
+	self.attackDescription = "Дракон изрыгает своё пламя на [username]"
+	self.prepareAttackDescription = "Затем дракон открыл свою пасть."
 end
 
 return Dragon
