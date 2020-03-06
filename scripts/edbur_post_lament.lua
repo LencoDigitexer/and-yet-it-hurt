@@ -18,31 +18,31 @@ function EdburPostLament:new(first, revive)
 	self:setOnItems({
 	{
 		request =  Player.pronoun .. "NoteEdbur",
-		response = [[Edbur started blushing. "D-Don't read it! Just hand it to Ferdan."]],
+		response = [[Эдубр покраснел. "Н-не читай его! Просто отдать Фердану."]],
 		anim = "blush",
 	}})
 
     if Events.passedForest then
         self.anim:add("naked", 7)
-        self:setText([["Good to see you're still alive [username]!"]])
+        self:setText([["Рад видеть, что ты еще жива, [username]!"]])
         self:setOptions({
             {
-                text = [["I'm kind of stuck on my adventure."]],
+                text = [["Я немного застряла на своем приключении."]],
                 func = F(self, "advice"),
             },
             {
-                text = [["Why are you naked?"]],
-                response = [["I accidentally cut my shirt open, and well, your parents were the only one who made clothes in this town. So no shirt for me."]],
+                text = [["Почему ты без одежды?"]],
+                response = [["Я случайно порвал рубашку, а твои родители были единственными, кто шил одежду в этом городе. Так что никакой рубашки у меня нет."]],
                 remove = true
             },
             {
-                text = [[Go to your room.]],
+                text = [[Иди в свою комнату.]],
                 func = F(self, "room")
             }
         })
     else
         if not self.inited and not first then
-            self:setText([["Good to see you're still alive, [username]!"]])
+            self:setText([["ад видеть, что ты еще жива, [username]!"]])
         end
 
         if first and type(first) == "string" then
@@ -50,12 +50,12 @@ function EdburPostLament:new(first, revive)
         else
             self:setOptions({
                 {
-                    text = [["I'm kind of stuck on my adventure."]],
+                    text = [["Я немного застряла на своем приключении."]],
                     func = F(self, "advice"),
                     anim = "idle"
                 },
                 {
-                    text = [[Go to your room.]],
+                    text = [[Иди в свою комнату.]],
                     func = F(self, "room")
                 }
             })
@@ -67,20 +67,20 @@ end
 
 
 function EdburPostLament:advice()
-    self:setText([["Creative thinking is key! Sometimes you just need to imagine the world in a different way to find the right path."]])
+    self:setText([["Творческое мышление- это ключ! Иногда вам просто нужно представить мир по- другому, чтобы найти правильный путь."]])
     self:setOptions({
         {
-            text = [["What do you mean?"]],
-            response = [["Well, let's put it this way. Just like how we fight, by removing and adding something, we can use this technique to manipulate the world around us."]],
+            text = [["Что ты имеешь в виду?"]],
+            response = [["Ну, скажем так. Точно так же, как мы боремся, удаляя и добавляя что-то, мы можем использовать эту технику, чтобы манипулировать миром вокруг нас."]],
             options = {
                 {
-                    text = [["This is all very confusing."]],
+                    text = [["Это все очень непонятно"]],
                     response = [[¯\_(ツ)_/¯   ]],
                     func = F(self, "new")
                 },
                 {
-                    text = [["I think I understand."]],
-                    response = [["Good!"]],
+                    text = [["Я думаю, что понимаю."]],
+                    response = [["Хорошо!"]],
                     func = F(self, "new")
                 }
             }
@@ -94,9 +94,9 @@ function EdburPostLament:room(revive)
 
     if revive then
         if revive == 9 then
-            self:setText([[[username] woke up. He was well rested, and ready to continue his adventure.]])
+            self:setText([[[username] проснулась. Она хорошо отдохнула и была готова продолжить своё приключение.]])
         else
-            self:setText([[Suddenly, [username] woke up in sweat. Was it all a dream? Perhaps a warning to be careful. [He] got up, and put on [his] clothes.]])
+            self:setText([[Внезапно, [username] проснулась вся в поту. Неужели всё это было сном? Возможно, это предупреждение, чтобы быть осторожней. Она встала и надела свою одежду.]])
         end
         if self.isOpen then
             self.player:regainHealth()
@@ -106,25 +106,25 @@ function EdburPostLament:room(revive)
             Game:addFile(require("westown_gate")())
         end
     else
-        self:setText([["It's so nice of Edbur that he lets me stay here with him," said [username].]])
+        self:setText([["Это так мило со стороны Эда, что он позволяет мне остаться здесь с ним," сказала [username].]])
     end
 
     self:setOptions({
         {
-            text = "Check the closet.",
-            response = [[[username] looked in the closet. [He] saw an odd stone, a box filled with sweets and found 10 gold on the top shelf. [username] took the gold and put it in [his] pocket.]],
+            text = "Проверить шкаф.",
+            response = [[[username] заглянула в шкаф. Она увидела странный камень, коробку с конфетами, и нашла 10 золотых на верхней полке. [username] взялп золото и положилп его в карман.]],
             condition = function () return not Events.searchedCloset end,
             event = "searchedCloset",
             gold = 10,
             remove = true
         },
         {
-            text = [[Mourn.]],
-            response = [["I miss you, Mom, Dad," said [username].
-It still hurt.]],
+            text = [[Горевать.]],
+            response = [["Я скучаю по тебе, мама, папа," сказала [username].
+Все ещё больно..]],
         },
         {
-            text = "Go back.",
+            text = "Назад.",
             func = function () self.revived = false self:new(nil) end
         }
     })
