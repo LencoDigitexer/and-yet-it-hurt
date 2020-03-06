@@ -9,33 +9,33 @@ function EastownGate:new(text)
 	end
 
 	if not text then
-		self:setText([[A knight was guarding the gate. "Greetings," said the knight. "This is the gate to Eastown. You're not allowed to enter if you don't have a weapon to defend yourself. Wild animals live in the tall grass!"]])
+		self:setText([[Ворота охранял рыцарь. "Приветствую вас", - сказал рыцарь. "Это ворота в Восточный Город. Вы не можете войти, если у вас нет оружия, чтобы защитить себя. Дикие животные живут в высокой траве!"]])
 	elseif type(text) == "string" then
 		self:setText(text)
 	end
 	self:setOptions({
 		{
-            text = [["Let me in."]],
-			response = [["I see you have a weapon. Very well then. Be careful out there."]],
+            text = [["Впустите меня."]],
+			response = [["Я вижу, у тебя есть оружие. Ну что ж, хорошо. Будь там осторожна."]],
             func = F(self, "enter")
 		},
 		{
-            text = [["Who are you?"]],
-            response = [["The name is Righ. I am one of the three Serpent Knight Brothers."]]
+            text = [["Кто вы?"]],
+            response = [["Моё имя - Райт. Я один из трех братьев рыцарей дракона."]]
 		},
 		{
-			text = [["What's up?"]],
+			text = [["Что случилось?"]],
 			condition = function () return not Events.gaveGuardLongerSword end,
-			response = [["Well I'm glad you asked. You see, compared to my brothers my sword is the shortest. Could you make it so that my sword is the longest? Make it go as high as my eyes."]],
+			response = [["Что ж, я рад, что вы спросили. Видите ли , по сравнению с моими братьями мой меч самый короткий. Не могли бы вы сделать так, чтобы мой меч был самым длинным? Пусть он поднимется так высоко, как мои глаза."]],
 			options = {
 				{
-					text = [["I fixed it."]],
+					text = [["Я исправлю."]],
 					default = true,
 					func = F(self, "extendSword")
 				},
 				{
-					text = [["Not now."]],
-					func = F(self, "new", [["Not now."]])
+					text = [["Не сейчас."]],
+					func = F(self, "new", [["Не сейчас."]])
 				}
 			}
 		}
@@ -74,19 +74,19 @@ function EastownGate:extendSword()
 		Events.gaveGuardLongerSword = true
 		self.player.gold = self.player.gold + 25
 		Art.new(self, "guard_long_sword")
-		self:setText([["That's perfect! Thanks a lot! Here, have some gold." The knight handed [username] 25 gold.]])
+		self:setText([["Это прекрасно! Большое спасибо! Вот, возьми немного золота." Рыцарь дал [username] 25 золотых.]])
 		self:setOptions({
 			{
-				text = [["You're welcome."]],
-				func = F(self, "new", [["You're welcome," said [username].]])
+				text = [["Пожалуйста."]],
+				func = F(self, "new", [["Пожалуйста," сказала [username].]])
 			},
 			{
-				text = [["No problem."]],
-				func = F(self, "new", [["No problem," said [username].]])
+				text = [["Без проблем."]],
+				func = F(self, "new", [["Без проблем," сказала [username].]])
 			}
 		})
 	else
-		self:setText([["Not really what I had in mind. Maybe try again? Make it go as high as my eyes."]])
+		self:setText([["Не совсем то, что я имел в виду. Может быть, попробовать еще раз? Пусть он поднимется так высоко, как мои глаза.."]])
 	end
 end
 
