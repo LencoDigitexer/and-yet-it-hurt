@@ -12,14 +12,14 @@ function Forest:new(goal)
 		Forest.goal = goal
 	end
 
-	self:setText([[[username] walked through the forest.]])
+	self:setText([[[username] гуляля по лесу.]])
 	self:setOptions({
 		{
-			text = "Continue walking.",
+			text = "Продолжать идти.",
 			func = function () self:walk() end
 		},
 		{
-			text = "Go back.",
+			text = "Вернуться.",
 			options = {},
 			func = function () self:goBack() end
 		}
@@ -37,7 +37,7 @@ end
 function Forest:walk()
 	if Forest.step == 3 then
 		self.player:regainHealth()
-		self:setText("Finally, [username] got out of the forest.")
+		self:setText("Наконец, [username] выбралась из леса.")
 		self:setOptions({})
 		if Forest.goal == "east" then
 			self:loadEast()
@@ -62,7 +62,7 @@ end
 
 function Forest:goBack()
 	self.player:regainHealth()
-	self:setText("[username] decided to walk back and got out of the forest.")
+	self:setText("[username] решила вернуться пешком и выбралась из леса.")
 	self:setOptions({})
 	self.deleteOnClose = true
 	if Forest.goal == "east" then
