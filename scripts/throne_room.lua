@@ -6,33 +6,33 @@ function ThroneRoom:new(text)
 	Art.new(self, "throne_room")
 	self.player.health = 100
 
-	self:setText([[[username] opened two big doors, and [he] found [him]self inside a huge room. At the end of the room there stood a throne, occupied by a skeleton. The skeleton moved. It talked. "Who goes there?" it said.]])
+	self:setText([[[username] открыла две большие двери, и она обнаружила себя внутри огромной комнаты. В конце комнаты стоял трон, на котором сидел скелет. Скелет шевельнулся. Он говорящий. "Кто там ходит?- сказал он.]])
 	self:setOptions({
 		{
-			text = [["Give me that sword!"]],
-			response = [["What? Give my precious Nightblood to you?" said the skeleton. "You're just like that kid from 30 years ago."]],
+			text = [["Отдай мне этот меч!"]],
+			response = [["Что? Отдать тебе мой драгоценный Кровавый Меч?- сказал скелет. "Ты точно такой же, как тот парень 30 лет назад."]],
 			options = {
 				{
-					text = [["If you won't give me the sword I'll have to kill you."]],
-					response = [["Kill me?!", the skeleton shouted angrily. "You dare to even suggest that you have the ability to release me from this curse I have bestowed upon myself? Come then. I'll show you that which I desire the most. Death."]],
+					text = [["Если ты не отдашь мне меч, мне придется убить тебя."]],
+					response = [["Убить меня?!" - сердито крикнул скелет. "Ты смеешь даже предполагать, что можешь освободить меня от проклятия, которое я наложил на себя? Тогда пойдем. Я покажу тебе то, чего я желаю больше всего. Смерти."]],
 					options = {
 						{
-							text = "Fight the Skeleton King.",
+							text = "Сразиться с королем скелетов.",
 							func = F(self, "fight")
 
 						}
 					}
 				},
 				{
-					text = [["Who are you talking about?"]],
-					response = [["The fool! He got lucky that he was able to escape with a mere scar. After all these years I still laugh thinking about it." And indeed, the skeleton laughed.]],
+					text = [["О ком ты говоришь?"]],
+					response = [["Дурачок один. Ему повезло, что он смог убежать с простым шрамом. После всех этих лет я все еще смеюсь, думая об этом." И действительно, скелет рассмеялся.]],
 					remove = true
 				}
 			},
 		},
 		{
-			text = [["My name is [username]."]],
-			response = [["Greetings, [username]. My name is Lord Theodore IV, the Immortal, Defier of Death, Lord Bones, the Skeleton King. What does a kid like you seek in my monstrous castle?"]],
+			text = [["Моё имя [username]."]],
+			response = [["Приветствую, [username]. Меня зовут Лорд Теодор IV, Бессмертный, бросающий вызов смерти, Лорд кости, Король скелетов. Что такой ребенок, как ты, ищет в моем чудовищном замке?"]],
 			remove = true
 		}
 	})
