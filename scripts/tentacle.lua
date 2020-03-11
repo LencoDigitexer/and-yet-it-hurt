@@ -19,9 +19,9 @@ function Tentacle:new(...)
 
 	self.strength = 15
 
-	self.description = "Suddenly, a tentacle monster popped out of the ground. "
-	self.attackDescription = "The tentacle monster flung himself at [username]"
-	self.prepareAttackDescription = "Then the tentacle monster was preparing for an attack!"
+	self.description = "Внезапно, из земли выскочило тентакли."
+	self.attackDescription = "Тентакли бросилось на [username]"
+	self.prepareAttackDescription = "А потом тентакли приготовилось к нападению! (53u*ch45 600D37 53K5)"
 end
 
 return Tentacle
