@@ -19,9 +19,9 @@ function Spider:new(...)
 
 	self.strength = 20
 
-	self.description = "Suddenly, [username] encountered a spider-like creature. Its fangs were razor sharp, and it locks their eye on their enemy."
-	self.attackDescription = "The creature aimed its fangs at [username]"
-	self.prepareAttackDescription = "Then the creature was preparing for an attack!"
+	self.description = "Внезапно, [username] столкнулась с паукообразным существом. Его клыки были остры как бритва, и он не спускал глаз с врага."
+	self.attackDescription = "Существо нацелило свои клыки на [username]"
+	self.prepareAttackDescription = "Значит, существо готовилось к нападению!"
 end
 
 
