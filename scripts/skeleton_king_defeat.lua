@@ -12,21 +12,21 @@ function SkeletonKingDefeat:new(text)
 
 	self.player:regainHealth()
 
-	self:setText([["Th-thank you," said the skull, followed by complete silence in the throne room.]])
+	self:setText([["С-спасибо", - сказал череп, и в тронном зале воцарилась полная тишина.]])
 	self:setOptions({
 		{
-			text = [[Grab the sword.]],
+			text = [[Схватиться за меч.]],
 			anim = "nosword",
 			item = "nightblood",
-			response = "[username] grabbed the sword. As [he] held Nightblood in [his] hand [he] immediately felt its incredible power.",
+			response = "[username] схватилась за меч. Когда она держала Кровавый Меч в своей руке, она немедленно почувствовал его невероятную силу.",
 			options = {
 				{
-					text = [[Go back.]],
-					response = [[Suddenly, the whole castle started shaking. The roof was falling apart. [username] knew that [he] had little time.]],
+					text = [[Вернуться.]],
+					response = [[Внезапно весь замок затрясся. Крыша разваливалась на части. [username] знала, что у неё было мало времени.]],
 					anim = "shake",
 					options = {
 						{
-							text = "Run.",
+							text = "Бежать.",
 							func = F(self, "run")
 						}
 					}
@@ -37,7 +37,7 @@ function SkeletonKingDefeat:new(text)
 end
 
 function SkeletonKingDefeat:run()
-	Game:replaceFile("castle", require("castle")("[username] ran through the corridors, dodging the bricks that fell from the roof. And just as [username] had escaped the castle, it collapsed into rubble."))
+	Game:replaceFile("castle", require("castle")("[username] бежала по коридорам, уворачиваясь от упавших с крыши кирпичей. И как только [username] покинула замок, он рухнул в руины."))
 end
 
 return SkeletonKingDefeat
