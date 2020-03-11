@@ -9,35 +9,35 @@ function WestownGate:new(text)
 	end
 
 	if not text then
-		self:setText([[A knight was guarding the gate. "Greetings," said the knight. "This is the gate to Westown. You're not allowed to enter if you don't have a weapon to defend yourself. Wild animals live in the tall grass!"]])
+		self:setText([[Ворота охранял рыцарь. "Приветствую вас," - сказал рыцарь. "Это ворота в Западный Город. Вы не можете войти, если у вас нет оружия, чтобы защитить себя. Дикие животные живут в высокой траве!"]])
 	elseif type(text) == "string" then
 		self:setText(text)
 	end
 
 	self:setOptions({
 		{
-            text = [["Let me in."]],
-			response = [["I see you have a weapon. Very well then. Be careful out there."]],
+            text = [["Впустите меня."]],
+			response = [["Я вижу, у тебя есть оружие. Ну что ж, хорошо. Будь там осторожна."]],
 			options = {},
 			func = F(self, "enter"),
 		},
 		{
-            text = [["Who are you?"]],
-            response = [["The name is Leff. I am one of the three Serpent Knight Brothers."]]
+            text = [["Кто ты"]],
+            response = [["Меня зовут Лефф. Я один из трех братьев рыцаря дракона."]]
 		},
 		{
-			text = [["What's up?"]],
+			text = [["Что случилось?"]],
 			condition = function () return not Events.fixedGuardsSigil end,
-			response = [["Well I'm glad you asked. You see, the sigil on my breastplate isn't quite right. The dagger is missing the serpent. Could you fix it for me?"]],
+			response = [["Что ж, я рад, что вы спросили. Видите ли, знак на моем нагруднике не совсем правильный. В кинжале нет змеи. Не могли бы вы починить его для меня?"]],
 			options = {
 				{
-					text = [["I fixed it."]],
+					text = [["Я все исправлю"]],
 					func = F(self, "fixSigil"),
 					default = true
 				},
 				{
-					text = [["Not now."]],
-					func = F(self, "new", [["Not now."]])
+					text = [["Не сейчас."]],
+					func = F(self, "new", [["Не сейчас."]])
 				}
 			}
 		}
@@ -78,19 +78,19 @@ function WestownGate:fixSigil()
 		Events.fixedGuardsSigil = true
 		self.player.gold = self.player.gold + 25
 		Art.new(self, "guard")
-		self:setText([["That's perfect! Thanks a lot! Here, have some gold." The knight handed username 25 gold.]])
+		self:setText([["Это прекрасно! Большое спасибо! Вот, возьми немного золота." Рыцарь вручил нам 25 золотых.]])
 		self:setOptions({
 			{
-				text = [["You're welcome."]],
-				func = F(self, "new", [["You're welcome," said [username].]])
+				text = [["Пожалуйста"]],
+				func = F(self, "new", [["Пожалуйста," сказала [username].]])
 			},
 			{
-				text = [["No problem."]],
-				func = F(self, "new", [["No problem," said [username].]])
+				text = [["Без проблем."]],
+				func = F(self, "new", [["Без проблем," сказала [username].]])
 			}
 		})
 	else
-		self:setText([["No, that doesn't seem right. Try again will ya?"]])
+		self:setText([["Нет, это кажется неправильно. Попробуй еще раз, ладно??"]])
 	end
 end
 
