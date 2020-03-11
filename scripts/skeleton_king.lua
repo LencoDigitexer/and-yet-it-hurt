@@ -19,9 +19,9 @@ function SkeletonKing:new(...)
 
 	self.strength = 10
 
-	self.description = "[username] and the Skeleton King approached each other and found themselves in the center of the throne room."
-	self.attackDescription = "The Skeleton King swung its sword at [username]"
-	self.prepareAttackDescription = "Then the Skeleton King raised its sword!"
+	self.description = "[username] и король скелетов подошли друг к другу и оказались в центре тронного зала."
+	self.attackDescription = "Король скелетов замахнулся мечом на [username]"
+	self.prepareAttackDescription = "Тогда король скелетов поднял свой меч!"
 end
 
 
