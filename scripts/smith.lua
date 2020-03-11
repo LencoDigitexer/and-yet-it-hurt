@@ -13,10 +13,10 @@ function Smith:new(text)
 		self.anim:add("opening", 1)
 		self.anim:add("angry", 3)
 		self.anim:set("angry")
-		self:setText([["Do you think it's normal to walk away in the middle of a conversation?" Ferdan said angrily.]])
+		self:setText([["Как ты думаешь, это нормально - уйти посреди разговора?" - сердито сказал Фердан .]])
 		self:setOptions({
 			{
-				text = [["Sorry."]],
+				text = [["Простите."]],
 				func = F(self, "note")
 			}
 		})
@@ -27,34 +27,34 @@ function Smith:new(text)
 		self:setText(text)
 		self:setOptions({})
 	elseif Events.gaveNoteToFerdan then
-		self:setText([["Hello [username]," said Ferdan. "Have you changed your foolish mind yet?"]])
+		self:setText([["Привет [username]," сказал Фердан. "Ты ещё не передумала, глупышка?"]])
 		if not Events.movedAnn then
 			self:setOptions({
 				{
-					text = [["Do you have the key for the gate to the castle?"]],
-					response = [["No, why? Is it locked? Good! It prevents people like you from making stupid decisions. Whoever has it I hope they keep it."]],
+					text = [["У вас есть ключ от ворот замка?"]],
+					response = [["Нет, а что? Они заперты? Хорошо! Это мешает таким людям, как Вы, принимать глупые решения. У кого бы они ни были, я надеюсь, что они их сохранят."]],
 					condition = function () return not Events.metAnn end,
 					options = {}
 				},
 				{
-					text = [["No."]],
-					response = [["No," said [username]. "Idiot," said Ferdan.]],
+					text = [["Нет."]],
+					response = [["Нет," сказала [username]. "Идиотка," сказал Фердан.]],
 					remove = true
 				}
 			})
 		end
 	else
-		self:setText([[As [username] walked in [he] saw a big and strong man hammering down on a sword. "What can I do for ya?", the man asked.]])
+		self:setText([[Когда [username] вошла, она увидела большого и сильного мужчину, колотящего по мечу. "Что я могу для тебя сделать?", спросил мужчина..]])
 
 		self:setOptions({
 			{
-				text = [["I'm a friend of Edbur"]],
-				response = [["Edbur? What's that old fella been up to? Anyway, you could be friends with the king for all I care. If you don't have money then leave."]],
+				text = [["Я друг Эдбура"]],
+				response = [["Эдбур? Что этот старик задумал? Как бы то ни было, ты можешь дружить с королем, мне все равно. Если у вас нет денег, тогда уходите."]],
 				remove = true
 			},
 			{
-				text = [["Can I buy a sword?"]],
-				response = [["It depends, do you have 200 gold? If not then leave."]],
+				text = [["Можно мне купить меч?"]],
+				response = [["Это зависит от того, есть ли у вас 200 золотых? Если нет то уходите."]],
 				remove = true
 			}
 		})
@@ -63,7 +63,7 @@ function Smith:new(text)
 			self:setOnItems({
 			{
 				request = Player.pronoun .. "NoteEdbur",
-				response = [[[username] handed Edbur's note to Ferdan. "Edbur asked me to give this to you. He said you would understand."]],
+				response = [[[username] передала записку Эдбура Фердану. "Эдбур попросил меня передать это тебе. Он сказал, что ты поймешь."]],
 				func = function ()
 					self.inCutscene = true
 					self.gaveNote = true
@@ -72,7 +72,7 @@ function Smith:new(text)
 				end,
 				options = {
 					{
-						text = "Continue.",
+						text = "Продолжить.",
 						func = F(self, "note")
 					},
 				}
@@ -97,36 +97,36 @@ function Smith:note()
 	self.anim:add("idle", 1)
 	self.anim:add("angry", 3)
 	self.anim:add("opening", 1)
-	self:setText([["Let's see, what is this all about," said Ferdan as he read the note. "Gragragragra!" Ferdan laughed. "You've gone soft Edbur."]])
+	self:setText([["Давайте посмотрим, что все это значит", - сказал Фердан, читая записку. "Граграграгра!" - Фердан рассмеялся. "Ты стал мягким, Эдбур."]])
 	self:setOptions({
 		{
-			text = "Continue.",
+			text = "Продолжить.",
 			default = true,
-			response = [["And you, what are you a fool?" Ferdan asked annoyed. "Killing a dragon for vengeance. Not that I can convince you not to, according to Edbur."]],
+			response = [["А ты, какая же ты дура." - Раздраженно спросил фердан. "Убить дракона из мести. По словам Эдбура, я не могу убедить вас в обратном."]],
 			anim = "angry",
 			options = {
 				{
-					text = "Continue.",
-					response = [[Ferdan sighed. "You can't kill it, kid. Not with that dagger nor with any of my swords."]],
+					text = "Продолжить.",
+					response = [[Фердан вздохнул. "Ты не можешь убить его, малыш. Ни с этим кинжалом, ни с любым из моих мечей."]],
 					default = true,
 					anim = "idle",
 					options = {
 						{
-							text = [["What do you mean?"]],
-							response = [["The legend says that the dragon can only be killed with Nightblood, a sword forged from the blood of demons. It's so edgy that it can cut right through dragon scale."]],
+							text = [["Что ты имеешь в виду?"]],
+							response = [["Легенда гласит, что дракона можно убить только Кровавым Мечом, мечом, выкованным из крови демонов. Он настолько острый, что может прорезать чешую дракона."]],
 							options = {
 								{
-									text = [["Where is it?"]],
-									response = [["Nightblood, if it exists at all, is said to be wielded by the Skeleton King who lives in the castle nearby."]],
+									text = [["Где же он?"]],
+									response = [["Говорят, что Кровавым Мечом, если он вообще существует, владеет Король скелетов, живущий в соседнем замке."]],
 									options = {
 										{
-											text = [["Thanks, I know what to do now."]],
+											text = [["Спасибо, теперь я знаю, что делать."]],
 											anim = "angry",
-											response = [["Don't do it kid. The Skeleton King, if he exists at all, has been undefeated. If you believe in this stuff you're an idiot, and if it were to be true you're an even bigger idiot!"]],
+											response = [["Не делай этого, малыш. Король скелетов, если он вообще существует, остался непобежденным. Если ты веришь во все это, то ты дура, а если это правда, то ты еще больше дура!"]],
 											options = {
 												{
-													text = [["I'm sorry, Ferdan. I have no choice."]],
-													response = [["Well if you're gonna do it, do it properly!" Ferdan went in the other room and came back with a sword. "Here, take it," said Ferdan as he pushed the sword in [username]'s arms. "Edbur better not come crying at my feet when you're dead!"]],
+													text = [["Мне очень жаль, Фердан. У меня нет выбора."]],
+													response = [["Ну, если ты собираешься это сделать, сделай это как следует!" Фердан вышел в другую комнату и вернулся с мечом. "Вот, возьми," сказал Фердан, сунув меч в руки [username]. "Лучше бы Эдбур не плакал у моих ног, когда ты умрешь!"]],
 													func = function ()
 														Events.gaveNoteToFerdan = true
 														Player.inventory.note = nil
@@ -134,16 +134,16 @@ function Smith:note()
 													item = "sword",
 													options = {
 														{
-															text = [["Thanks."]],
-															func = F(self, "new", [["Thanks, Ferdan," said [username]. Ferdan shook his head and continued his work.]])
+															text = [["Спасибо."]],
+															func = F(self, "new", [["Спасибо, Фердан," сказала [username]. Фердан покачал головой и продолжил свою работу.]])
 														}
 													}
 												}
 											}
 										},
 										{
-											text = [["Skeleton King?"]],
-											response = [["Keep up with the legends, kid. 138 years ago the Skeleton King used forbidden magic to gain eternal life. He has lost all his flesh, but his soul and bones live on. Not that I believe any of these fairy tales."]],
+											text = [["Король Скелетов?"]],
+											response = [["Не отставай от легенд, малыш. 138 лет назад король скелетов использовал запрещенную магию, чтобы обрести вечную жизнь. Он потерял всю свою плоть, но его душа и кости продолжают жить. Не то чтобы я верил во все эти сказки."]],
 											remove = true
 										}
 									}
