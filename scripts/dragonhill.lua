@@ -4,9 +4,9 @@ function DragonHill:new()
 	DragonHill.super.new(self, "dragonhill")
     Art.new(self, "dragonhill")
 
-    self:setText("At last, [username] finally reached the top of the hill. There [he] saw it. The dragon. All this time [username] had built up [his] emotions, [his] rage, and it was time to unleash it.")
+    self:setText("Наконец, [username] добралась до вершины холма. Там она увидел его. Дракона. Все это время [username] накапливала эмоции, ярость, и пришло время дать им волю.")
     self:setOptions({{
-        text = "Fight the dragon.",
+        text = "Сразиться с драконом.",
         func = F(self, "fight")
     }})
 end

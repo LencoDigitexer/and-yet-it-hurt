@@ -28,7 +28,7 @@ function EdburFighting:new()
 
 	self.learningState = 1
 
-	self.description = [["Whenever you enter a fight, this box will contain a description of the enemy."]]
+	self.description = [["Всякий раз, когда вы вступаете в бой, это поле будет содержать описание противника."]]
 end
 
 
@@ -51,15 +51,15 @@ function EdburFighting:updateDescription(state, damage)
 	if state == "prepareDefense" then
 		if self.learningState == 1 then
 			if damage > 0 then
-				self:setText([["Very good. The number of attacks you can do, and how much damage each attack does, depends on the weapon. Normally you will have limited time to block and attack."
-(Save to continue)]])
+				self:setText([["Отлично. Количество атак, которые вы можете сделать, и сколько урона наносит каждая атака, зависит от оружия. Обычно у вас будет ограниченное время, чтобы блокировать и атаковать."
+(Сохранить, чтобы продолжить CTRL + S)]])
 				self.learnedAttacking1 = true
 				if self.learnedAttacking1 and self.learnedDefending1 then
 					self.learningState = 2
 				end
 			else
-				self:setText([["You missed! Make sure to put any character other than a space in the marks: <{ a }>"
-(Save to continue)]])
+				self:setText([["Ты промахнулся! Убедись, что в метках есть символы, кроме пробела: <{ a }>"
+(Сохранить, чтобы продолжить)]])
 			end
 		elseif self.learningState == 2 then
 			if damage > 0 then
@@ -67,43 +67,43 @@ function EdburFighting:updateDescription(state, damage)
 				-- self.timeDefending = huge
 				self.learnedAttacking2 = true
 				if self.learnedDefending2 and self.learnedAttacking2 then
-					self:setText([["Well done! One last piece of advice: Instead of clicking next to the 'x' and pressing backspace, you can select the 'x' and replace it with a space instead." 
-(Save to continue)]])
+					self:setText([["Молодец! Последний совет: Вместо того, чтобы нажимать рядом с " x " и нажимать backspace, вы можете выбрать " x " и заменить его пробелом." 
+(Сохранить, чтобы продолжить)]])
 					self.learningState = 3
 				else
-					self:setText([["Very good! You were able to attack me.
-(Save to continue)]])
+					self:setText([["Очень хорошо! Ты смог напасть на меня.
+(Сохранить, чтобы продолжить)]])
 				end
 			else
-				self:setText([["You missed! Make sure to put any character other than a space in the marks: <{ a }>"
-(Save to continue)]])
+				self:setText([["Ты промахнулся! Убедитесь, что в метках стоит любой символ, кроме пробела: < { a }"
+(Сохранить, чтобы продолжить)]])
 			end
 		end
 	elseif state == "defending" then
 		if self.learningState == 1 then
-			self:setText([["When you're being attacked, one or more of these marks will pop up: <{ x }>. Each mark counts as 1 attack. Remove the 'x' from the mark to block the attack, or replace it with a space. Once all the 'x's are removed, save the file. Don't try to remove the mark itself, it won't work."]])
+			self:setText([["Когда на вас нападают, появляется одна или несколько таких меток: <{ x }>. Каждый знак считается за 1 атаку. Удалите " x " из метки, чтобы заблокировать атаку, или замените его пробелом. Как только все " х " будут удалены, сохраните файл. Не пытайтесь удалить саму метку, это не сработает."]])
 		elseif self.learningState == 2 then
-			self:setText([["Try to block my attack in a limited amount of time. At the bottom it says how much time you have."]])
+			self:setText([["Попытайтесь заблокировать мою атаку за ограниченное время. Внизу написано, сколько у вас времени."]])
 			self.timeAttacking = 10
 		end
 	elseif state == "prepareAttack" then
 		if damage > 0 then
-			self:setText([["That's no good. Make sure to remove the 'x' from the marks."
-(Save to continue)]])
+			self:setText([["Это никуда не годится. Убедитесь в том, чтобы удалить "x" из меток."
+(Сохранить, чтобы продолжить)]])
 		else
 			if self.learningState == 2 then
 				self.learnedDefending2 = true
 				if self.learnedDefending2 and self.learnedAttacking2 then
-					self:setText([["Well done! One last piece of advice: Instead of clicking next to the 'x' and pressing backspace, you can select the 'x' and replace it with a space instead." 
-	(Save to continue)]])
+					self:setText([["WМолодец! Последний совет: Вместо того, чтобы нажимать рядом с " x " и нажимать backspace, вы можете выбрать " x " и заменить его пробелом." 
+	(Сохранить, чтобы продолжить)]])
 					self.learningState = 3
 				else
-					self:setText([["Very good! You were able to block my attack."
-	(Save to continue)]])
+					self:setText([["Очень хорошо! Ты смог блокировать мою атаку."
+	(Сохранить, чтобы продолжить)]])
 				end
 			else
-				self:setText([["Very good! You were able to block my attack. But remember, if you don't save before the time runs out, none of your blocks will be registered. Sometimes it might be better to let some attacks go."
-(Save to continue)]])
+				self:setText([["Очень хорошо! Вы смогли блокировать мою атаку. Но помните, если вы не сохраните до истечения времени, ни один из ваших блоков не будет зарегистрирован. Иногда, возможно, было бы лучше отпустить некоторые атаки."
+(Сохранить, чтобы продолжить)]])
 				self.learnedDefending1 = true
 				if self.learnedAttacking1 and self.learnedDefending1 then
 					self.learningState = 2
@@ -113,10 +113,10 @@ function EdburFighting:updateDescription(state, damage)
 	elseif state == "attacking" then
 		if self.learningState == 1 then
 			-- self:setText([["When you're being attacked, these marks will pop up: <{ x }>. Remove the 'x' to block the attacks. Once all the 'x's are removed, save the file."]])
-			self:setText([["When it's your turn to attack, these marks will pop up: <{  }>. Fill the marks with any character besides a space and save the file. For example: <{a  }> or <{h}>. Don't try to add your own marks, it won't work."]])
+			self:setText([["Когда настанет ваша очередь атаковать, появятся следующие метки: <{ }>. Заполните метки любым символом, кроме пробела, и сохраните файл. Например: <{ a }> или <{h}>. Не пытайтесь добавить свои собственные отметки, это не сработает."]])
 		elseif self.learningState == 2 then
 			self.timeDefending = 10
-			self:setText([["Try to attack me in a limited amount of time. At the bottom it says how much time you have."]])
+			self:setText([["Попробуй напасть на меня за ограниченное время. Внизу написано, сколько у вас времени."]])
 		end
 		-- self:setText([["When you're being attacked, these marks will pop up: <{ x }>. Remove the 'x' to block the attacks.]])
 	end

@@ -6,14 +6,14 @@ function CastleInside:new()
 	CastleInside.super.new(self, "castle")
 	Art.new(self, "castle_inside")
 
-	self:setText([[[username] walked through the corridors of the castle.]])
+	self:setText([[[username] шла по коридорам замка.]])
 	self:setOptions({
 		{
-			text = "Continue walking.",
+			text = "Продолжать идти",
 			func = function () self:walk() end
 		},
 		{
-			text = "Go back.",
+			text = "Вернуться",
 			options = {},
 			func = function () self:goBack() end
 		}

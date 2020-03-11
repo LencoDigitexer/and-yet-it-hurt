@@ -9,7 +9,7 @@ function Castle:new(notfirst)
         Art.new(self, "castle_no_castle")
         self:setOptions({
             {
-                text = "Go back to Westown.",
+                text = "Вернуться в Западный Город",
                 func = F(self, "back")
             }
         })
@@ -20,16 +20,16 @@ function Castle:new(notfirst)
         self.anim:add("key", 4)
         self.anim:add("hill", 1)
         if not notfirst then
-            self:setText("[username] saw the castle up ahead.")
+            self:setText("[username] увидела впереди замок.")
         end
 
         self:setOptions({
             {
-                text = "Walk to the castle.",
+                text = "Идти до замка",
                 func = F(self, "door")
             },
             {
-                text = "Go back to Westown.",
+                text = "Вернуться в Западный Город.",
                 func = F(self, "back")
             }
         })
@@ -38,16 +38,16 @@ end
 
 function Castle:door()
     Events.sawSecondGate = true
-    self:setText("[username] stood in front of a huge door.")
+    self:setText("[username] стояла перед огромной дверью.")
     if Events.castleUnlocked then
         self.anim:set("unlocked")
         self:setOptions({
             {
-                text = "Go inside.",
+                text = "Войти внутрь.",
                 func = F(self, "inside")
             },
             {
-                text = "Go back.",
+                text = "Вернуться",
                 func = F(self, "new", true)
             }
         })
@@ -55,11 +55,11 @@ function Castle:door()
         self.anim:set("door")
         self:setOptions({
             {
-                text = "Go inside.",
-                response = "[username] tried to open the door, but it was locked."
+                text = "Войти внутрь.",
+                response = "[username] попыталась открыть дверь, но она была заперта."
             },
             {
-                text = "Go back.",
+                text = "Вернуться",
                 func = F(self, "new", true)
             }
         })
@@ -82,24 +82,24 @@ function Castle:enter()
 
     if not fail then
         Events.castleUnlocked = true
-        self:setText("[username] tried to unlock the door with the key, and it opened.")
+        self:setText("[username] попыталась отпереть дверь ключом, и она открылась.")
         self.anim:set("unlocked")
         self:setOptions({
             {
-                text = "Go inside.",
+                text = "Войти внутрь",
                 func = F(self, "inside")
             },
             {
-                text = "Go back.",
+                text = "Вернуться.",
                 func = F(self, "new", true)
             }
         })
     else
-        self:setText("[username] tried to unlock the door with the key, but it did not fit.")
+        self:setText("[username] попыталась отпереть дверь ключом, но тот не подошел.")
         self.anim:set("key")
         self:setOptions({
             {
-                text = "Back.",
+                text = "Назад.",
                 func = F(self, "door")
             }
         })
@@ -114,7 +114,7 @@ end
 
 
 function Castle:back()
-    self:setText("[username] decided to walk back through the castle gate.")
+    self:setText("[username] решила вернуться через ворота замка.")
     self:setOptions({})
     self.deleteOnClose = true
     Game:addFile(require("eastown_gate")())

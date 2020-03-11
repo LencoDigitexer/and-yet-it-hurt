@@ -6,39 +6,39 @@ function EdburPost:new()
 	self.anim:add("blush", 6)
 	self.anim:add("idle", 4)
 	self.cutscene = true
-	self:setText([["Now you know how to fight. But tell me, [username], are you sure you want to do this? Are you sure you want to fight the dragon?"]])
+	self:setText([["Теперь ты знаешь, как сражаться. Но скажи мне, [username], ты уверена, что хочешь этого? Ты уверена, что хочешь сразиться с драконом?"]])
 	local destiny = F(self, "destiny")
 	self:setOptions({
 		{
-			text = [["I have to do this."]],
+			text = [["Я должна это сделать."]],
 			func = destiny
 		},
 		{
-			text = [["It's my destiny."]],
+			text = [["Это моя судьба."]],
 			func = destiny
 		},
 		{
-			text = [["This is the only way."]],
+			text = [["Это единственный выход."]],
 			func = destiny
 		},
 		{
-			text = [["I don't feel like I have a choice."]],
-			response = [["Of course you have a choice! You can stay here with me. Live a peaceful life under my protection. What do you say, [username]?"]],
+			text = [["Я не чувствую, что у меня есть выбор."]],
+			response = [["Конечно, у тебя есть выбор! Ты можешь остаться здесь со мной. Живите мирной жизнью под моей защитой. Что скажешь, [username]?"]],
 			options = {
 				{
-					text = [["I must avenge my parents."]],
+					text = [["Я должна отомстить за своих родителей."]],
 					func = destiny
 				},
 				{
-					text = [["I won't find happiness in my life as long as that dragon's heart beats."]],
+					text = [["Я не найду счастья в своей жизни, пока бьется сердце этого дракона."]],
 					func = destiny
 				},
 				{
-					text = [["I rather die trying than live a peaceful life of regret."]],
+					text = [["Я лучше умру пытаясь что-то делать, чем буду жить мирной жизнью сожаления."]],
 					func = destiny
 				},
 				{
-					text = [["No I mean it, Edbur. There is no option where I don't fight the dragon."]],
+					text = [["Нет, я серьезно, Эдбур. Нет такого варианта, где я не сражалась бы с драконом."]],
 					func = destiny
 				}
 			}
@@ -48,34 +48,34 @@ function EdburPost:new()
 	self:setOnItems({
 	{
 		request =  Player.pronoun .. "NoteEdbur",
-		response = [[Edbur started blushing. "D-Don't read it! Just hand it to Ferdan."]],
+		response = [[Едбур покраснел. "Н-не читай его! Просто отдай Фердану"]],
 		anim = "blush",
 	}})
 end
 
 
 function EdburPost:destiny()
-	self:setText([["Alright, I understand," said Edbur, who did not entirely understand. "In any case, you won't be able to beat it with a mere dagger."]])
+	self:setText([["Хорошо, я понимаю," сказал Эдбур, который не совсем понимал. "В любом случае, вы не сможете победить его простым кинжалом."]])
 	self:setOptions({
 		{
-			text = [["Can't you give me a weapon of yours?"]],
-			response = [["I would if I could, but while you were laying in bed I sold all my weapons. People want to be able to protect themselves for when the dragon comes back."]],
+			text = [["Ты не можешь дать мне свое оружие?"]],
+			response = [["Я бы так и сделал, если бы мог, но пока ты лежала в постели, я продал всё своё оружие. Люди хотят защищать себя, когда дракон вернётся."]],
 			options = {
 				{
-					text = [["So what do I do now?"]],
-					response = [["I have an old friend who is a blacksmith in Westown. He might be able to help you. His name is Ferdan. Give him this note, he'll understand." Edbur wrote something on a piece of paper and handed it to [username].]],
+					text = [["Что же мне теперь делать?"]],
+					response = [["У меня есть старый друг, который работает кузнецом в Западном Городе. Возможно, он сумеет вам помочь. Его зовут Фердан. Дайте ему эту записку, он поймет." Эдбур написал что-то на листке бумаги и передал его [username].]],
 					item = Player.pronoun .. "NoteEdbur",
 					options = {
 						{
-							text = [["Thanks!"]],
+							text = [["Спасибо!"]],
 							anim = "idle",
 							remove = true,
 							options = {},
 							func = F(self, "endCutscene")
 						},
 						{
-							text = [["What does the note say?"]],
-							response = [[Edbur started blushing. "That's a secret! So don't read it! Just hand it to Ferdan."]],
+							text = [["Что говорится в записке?"]],
+							response = [[Эдбур покраснел. "Это секрет! Так что не читай его! Просто отдать Фернаду."]],
 							anim = "blush",
 							remove = true
 						}
@@ -89,8 +89,8 @@ end
 
 function EdburPost:endCutscene()
 	Events.postLament = true
-	local text = [["Thanks Edbur!" said [username] as [he] gave Edbur a hug. "No problem, kid," said Edbur. "Be careful out there."
-(From now on your progress will be saved automatically)]]
+	local text = [["Спасибо, Эдбур!" сказала [username] обнимая Эдбура. "Без проблем, дитё," сказал Эдбур. "Будь там осторожна."
+(Отныне ваш прогресс будет сохраняться автоматически)]]
 	self:setText(text)
 	Game:replaceFile("weapon shop", require("edbur_post_lament")(text))
 	Game:addFile(require("westown_gate")())

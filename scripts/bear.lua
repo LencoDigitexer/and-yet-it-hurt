@@ -19,9 +19,9 @@ function Bear:new(...)
 
 	self.strength = 20
 
-	self.description = "Suddenly, [username] encountered a bear. Their two front claws can cut through flesh with ease."
-	self.attackDescription = "The bear raised its claws at [username]"
-	self.prepareAttackDescription = "Then the bear was preparing for an attack!"
+	self.description = "Внезапно, [username] встрнетилась с медведем. Передние лапы с большими когтями запросто могут разрезать плоть."
+	self.attackDescription = "Медведь поднял лапы на [username]"
+	self.prepareAttackDescription = "Значит, медведь готовится к нападению!"
 end
 
 

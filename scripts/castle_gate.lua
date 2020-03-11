@@ -14,10 +14,10 @@ function CastleGate:new()
 
 	if Events.castleUnlocked then
 		self.anim:set("open")
-		self:setText([[[username] arrived at another gate, the one that leads to the castle. This time there was no guard.]])
+		self:setText([[[username] подошла к другим воротам, ведущим в замок. На этот раз стражи не было.]])
 		self:setOptions({
 			{
-				text = "Go through the gate.",
+				text = "Идти через ворота.",
 				func = F(self, "enter")
 			}
 		})
@@ -26,22 +26,22 @@ function CastleGate:new()
 			{
 				request = "castleGateKey",
 				event = "gateUnlocked",
-				response ="[username] tried to unlock the gate with the key, and it opened.",
+				response ="[username] попыталась отпереть калитку ключом, и она открылась.",
 				anim = "open",
 				options = {
 					{
-						text = "Go through the gate.",
+						text = "Идти через ворота.",
 						func = F(self, "enter")
 					}
 				}
 			}
 		})
 
-		self:setText([[[username] arrived at another gate, the one that leads to the castle. This time there was no guard.]])
+		self:setText([[[username] подошла к другим воротам, ведущим в замок. На этот раз стражи не было.]])
 		self:setOptions({
 			{
-				text = "Open the gate.",
-				response = "[username] tried to open the gate, but it was locked."
+				text = "Открыть ворота",
+				response = "[username] попыталась открыть калитку, но она была заперта."
 			}
 		})
 	end

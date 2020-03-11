@@ -9,16 +9,16 @@ function DragonDefeat:new()
 
 	Events.dragonDefeated = true
 
-	self:setText([[With the decapitated dragon next to [him] and with the red Nightblood in [his] hands, [username] fell to [his] knees. It was done.]])
+	self:setText([[[username] упала на колени рядом с обезглавленным драконом и Кровавым Мечём в руках. Это было сделано.]])
 	self:setOptions({
 		{
-			text = [[Look.]],
-            response = [[[username] stared into the starry sky. It looked pretty. Slowly tears started pouring out of [username]'s eyes.]],
+			text = [[Посмотреть.]],
+            response = [[[username] уставилась в звездное небо. Это выглядело очень мило. Из глаз [username] медленно потекли слезы.]],
 			options = {
 				{
-					text = [[Mourn.]],
-                    response = [["I miss you, Mom, Dad," said [username].
-And yet it hurt.]],
+					text = [[Горевать.]],
+                    response = [["Я скучаю по тебе, Мама, Папа," сказала [username].
+И все же было больно.]],
                     func = F(self, "ending")
 				}
 			}
