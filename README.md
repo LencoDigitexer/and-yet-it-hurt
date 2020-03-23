@@ -5,6 +5,8 @@
 <img src="https://fxsa.me/data/attachments/23/23571-979e64e416f0e89b27c736cfe6c94209.jpg">
 </a>
 
+<img src="https://downloader.disk.yandex.ru/preview/fac2ddfae0f0514a660022f48c0b7cb85c987a4ae348ed4f81070e3b7258d861/5e78d463/pzIpjFen8qRb8QRB4VsDuWP2O2t4wrHDmpAgb4bDGoGmihlbglv72rS11oVJU-wgrBgfh--Cs7rZA5yXwIQNlg==?uid=0&filename=2020-03-23_14-21-01.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&owner_uid=937437652&size=2048x2048">
+
 Исходный код игры для блокнота с переводом текста на русском языке.
 В процессе перевода...
 Основная проблема перевода скриптов lua - кодировка:
