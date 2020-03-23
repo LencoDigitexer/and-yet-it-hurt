@@ -1,6 +1,7 @@
 # И все же было больно.
 
-Уже можно скачать здесь https://github.com/LencoDigitexer/and-yet-it-hurt/releases/
+Актуальная версия игры https://github.com/LencoDigitexer/and-yet-it-hurt/releases/tag/2.0 <br>
+<a href="https://github.com/LencoDigitexer/and-yet-it-hurt/releases/download/2.0/and_yet_it_hurt.zip" download>Скачать файл</a>
 
 Исходный код игры для блокнота с переводом текста на русском языке.
 В процессе перевода...
